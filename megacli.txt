@@ -1,8 +1,11 @@
-MegaCli -LDInfo -Lall -aALL 	²éid¼¶±ðgaCli -AdpAllInfo -aALL 	²éid¿¨ÐϢ
-MegaCli -PDList -aALL 		²鿴ӲÅÐϢ
-MegaCli -AdpBbuCmd -aAll 	²鿴µçÐϢ
-MegaCli -FwTermLog -Dsply -aALL ²鿴raid¿¨È־
-MegaCli -LDInfo -LALL -aAll	²鿴LDÂ¼­´ÅÌmegacli -ldpdinfo -aall		²鿴LDPDÂ¼­ÓÎÀ´ÅÌMegaCli -cfgdsply -aALL 	ÏʾRaid¿¨Ðºţ¬RaidÉÖ£¬DiskÏ¹ØÅ¢
+MegaCli -LDInfo -Lall -aALL
+MegaCli -AdpAllInfo -aALL 
+MegaCli -PDList -aALL
+MegaCli -AdpBbuCmd -aAll
+MegaCli -FwTermLog -Dsply -aALL
+MegaCli -LDInfo -LALL -aAll
+megacli -ldpdinfo -aall	
+MegaCli -cfgdsply -aALL 
 
 megacli -PDList -a0
 
@@ -14,19 +17,27 @@ MegaCli -CfgForeign -Import -a0
 
 megacli -LDInfo -LAll -a0
 
-megacli -CfgLdadd -r5 [32:3,32:4,32:5] WB Direct -sz100gb -strpsz64 -a0	 ´´½¨raid5
+megacli -CfgLdadd -r5 [32:3,32:4,32:5] WB Direct -sz100gb -strpsz64 -a0	 #create vd with raid5 level
 
-megacli -CfgLdadd -r5 [32:3,32:4,32:5] WB Direct -Hsp[32:6] -a0	´´½¨raid5¼°È±¸Å
+megacli -CfgLdadd -r5 [32:3,32:4,32:5] WB Direct -Hsp[32:6] -a0
 
-megacli -ldbi -showprog -lall -a0  ²鿴ºóõ¯¹ýegaCli -CfgLdDel -L1 -a0				ɾ³ýMegaCli -LDRecon -Start -r5 -Add -PhysDrv[32:3] -L0 -a0		ÔÏÌ¼Óï´ÅÌ
-MegaCli -PDOffline -PhysDrv [32:4] -a0  ǿÖÏÏӲÅ
+megacli -ldbi -showprog -lall -a0
 
-MegaCli -PDOnline -PhysDrv [32:4] -a0 ǿÖÉÏӲÅ
+MegaCli -CfgLdDel -L1 -a0
 
-MegaCli -PDHSP -Set [-EnclAffinity] [-nonRevertible] -PhysDrv[32:6] -a0 ´´½¨ȫ¾Öȱ¸Å
+MegaCli -LDRecon -Start -r5 -Add -PhysDrv[32:3] -L0 -a0  #onlien add disk
 
-Megacli -pdhsp --Rmv -physdrv[32:5] -a0 ɾ³ýÌ
-MegaCli -PDRbld -ShowProg -PhysDrv [32:5] -a0 ²鿴ÎÀ´ÅÌؽ¨½ømegacli -pdmakejbod -physdrv[x:x] -a0   #disk make non-raid mode
+MegaCli -PDOffline -PhysDrv [32:4] -a0
+
+MegaCli -PDOnline -PhysDrv [32:4] -a0
+
+MegaCli -PDHSP -Set [-EnclAffinity] [-nonRevertible] -PhysDrv[32:6] -a0 #add hotspare disk
+
+Megacli -pdhsp --Rmv -physdrv[32:5] -a0 #remove hotspare
+
+MegaCli -PDRbld -ShowProg -PhysDrv [32:5] -a0 #view disk rebuild progress
+
+megacli -pdmakejbod -physdrv[x:x] -a0   #disk make non-raid mode
 
 megacli -pdlist -a0 |grep -i -e "enclosure device id" -e "slot number" -e "raw size" -e "firmware state"
 

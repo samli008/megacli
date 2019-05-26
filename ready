@@ -1,0 +1,2 @@
+read -p "pls input disk number[32:0]: " num
+megacli -pdmakegood -physdrv[$num] -force -a0

@@ -1,0 +1,7 @@
+read -p "pls input raid level[5]: " level
+level=${level:-5}
+read -p "pls input disk member[32:0,32:1,32:2]: " disk
+disk=${disk:-32:0,32:1,32:2}
+read -p "pls input vd size[100gb]: " size
+size=${size:-100gb}
+megacli -CfgLdadd -r$level [$disk] WB Direct -sz$size -strpsz64 -a0

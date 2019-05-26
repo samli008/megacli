@@ -1,0 +1,8 @@
+read -p "pls input raid level[5]: " level
+level=${level:-5}
+read -p "pls input disk number[32:2,32:3]: " num
+num=${num:-32:2,32:3}
+read -p "pls input vd id [0]: " vd
+vd=${vd:-0}
+megacli -ldrecon -start -r$level -add -physdrv[$num] -l$vd -a0
+

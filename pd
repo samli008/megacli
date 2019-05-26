@@ -1,0 +1,1 @@
+megacli -pdlist -a0 |grep -i -e 'enclosure device id' -e 'slot number' -e 'raw size' -e 'firmware state'

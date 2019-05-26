@@ -1,0 +1,3 @@
+read -p "pls input hotspare disk [32:3]: " disk
+disk=${disk:-32:3}
+megacli -pdhsp -set -physdrv[$disk] -a0

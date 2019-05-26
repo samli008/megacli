@@ -1,0 +1,2 @@
+read -p "pls input disk number[32:0]: " num
+megacli -pdmakejbod -physdrv[$num] -a0

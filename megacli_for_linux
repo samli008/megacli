@@ -1,0 +1,9 @@
+1.unzip MegaCliLin.zip 
+
+2.rpm -ivh Lib_Utils-1.00-09.noarch.rpm
+
+3.rpm -ivh MegaCli-8.02.16-1.i386.rpm 
+
+4.rpm -ql MegaCli
+
+5.ln -sf /opt/MegaRAID/MegaCli/MegaCli64 /usr/bin/megacli

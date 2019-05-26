@@ -1,0 +1,1 @@
+megacli -LDInfo -LAll -a0 | grep -i -e virtual -e 'raid level' -e size -e parity -e state -e strip -e recon

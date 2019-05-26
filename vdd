@@ -1,0 +1,2 @@
+read -p "pls input vd number[0]: " num
+megacli -cfglddel -l$num -a0

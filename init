@@ -1,0 +1,3 @@
+read -p "pls input vd number[0]: " num
+num=${num:-0}
+megacli -ldinit -start -l$num -a0

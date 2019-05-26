@@ -1,0 +1,45 @@
+MegaCli -LDInfo -Lall -aALL 	²éid¼¶±ðgaCli -AdpAllInfo -aALL 	²éid¿¨ÐϢ
+MegaCli -PDList -aALL 		²鿴ӲÅÐϢ
+MegaCli -AdpBbuCmd -aAll 	²鿴µçÐϢ
+MegaCli -FwTermLog -Dsply -aALL ²鿴raid¿¨È־
+MegaCli -LDInfo -LALL -aAll	²鿴LDÂ¼­´ÅÌmegacli -ldpdinfo -aall		²鿴LDPDÂ¼­ÓÎÀ´ÅÌMegaCli -cfgdsply -aALL 	ÏʾRaid¿¨Ðºţ¬RaidÉÖ£¬DiskÏ¹ØÅ¢
+
+megacli -PDList -a0
+
+megacli -CfgForeign -Dsply -a0
+
+megacli -CfgForeign -Clear -a0
+
+MegaCli -CfgForeign -Import -a0
+
+megacli -LDInfo -LAll -a0
+
+megacli -CfgLdadd -r5 [32:3,32:4,32:5] WB Direct -sz100gb -strpsz64 -a0	 ´´½¨raid5
+
+megacli -CfgLdadd -r5 [32:3,32:4,32:5] WB Direct -Hsp[32:6] -a0	´´½¨raid5¼°È±¸Å
+
+megacli -ldbi -showprog -lall -a0  ²鿴ºóõ¯¹ýegaCli -CfgLdDel -L1 -a0				ɾ³ýMegaCli -LDRecon -Start -r5 -Add -PhysDrv[32:3] -L0 -a0		ÔÏÌ¼Óï´ÅÌ
+MegaCli -PDOffline -PhysDrv [32:4] -a0  ǿÖÏÏӲÅ
+
+MegaCli -PDOnline -PhysDrv [32:4] -a0 ǿÖÉÏӲÅ
+
+MegaCli -PDHSP -Set [-EnclAffinity] [-nonRevertible] -PhysDrv[32:6] -a0 ´´½¨ȫ¾Öȱ¸Å
+
+Megacli -pdhsp --Rmv -physdrv[32:5] -a0 ɾ³ýÌ
+MegaCli -PDRbld -ShowProg -PhysDrv [32:5] -a0 ²鿴ÎÀ´ÅÌؽ¨½ømegacli -pdmakejbod -physdrv[x:x] -a0   #disk make non-raid mode
+
+megacli -pdlist -a0 |grep -i -e "enclosure device id" -e "slot number" -e "raw size" -e "firmware state"
+
+megacli -pdmakegood -physdrv[32:7] -force -a0
+
+megacli -h |grep -i pdmake
+
+megacli -h |grep -i cfg
+
+megacli -cfgallfreedrv -r1 -a0
+
+megacli -cfglddel -l1 -a0
+
+megacli -cfgclr -force -a0
+
+megacli -adpbootdrive -set -l0 -a0

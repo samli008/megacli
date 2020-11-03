@@ -1,3 +1,24 @@
 # install perccli
 rpm -ivh perccli-1.17.10-1.noarch.rpm
 ln -sf /opt/MegaRAID/perccli/perccli64 /usr/bin/perccli
+
+# Commands Description
+add        Adds/creates a new element to controller like VD,Spare..etc
+delete     Deletes an element like VD,Spare
+show       Displays information about an element
+set        Set a particular value to a property 
+get        Get a particular value to a property 
+/cx        Controller specific commands
+/ex        Enclosure specific commands
+/sx        Slot/PD specific commands
+/vx        Virtual drive specific commands
+/dx        Disk group specific commands
+/fall      Foreign configuration specific commands
+/px        Phy specific commands
+
+# pd info
+perccli /c0/eall/sall show
+perccli /c0/e64/s0 show
+
+# vd info
+perccli /c0/vall show

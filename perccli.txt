@@ -19,6 +19,21 @@ get        Get a particular value to a property
 # pd info
 perccli /c0/eall/sall show
 perccli /c0/e64/s0 show
+perccli /c0/e64/s0 set good [force]
+perccli /c0/e64/s0 set online
+perccli /c0/e64/s0 set offline
+perccli /c0/e64/s0 set jbod
 
 # vd info
 perccli /c0/vall show
+perccli /c0/v0 show
+perccli /c0/v1 show
+
+# foreign info
+perccli /c0/fall show 
+perccli /c0/fall import
+perccli /c0/fall delete
+
+# clear vd0 cache
+perccli /c0 show preservedcache
+perccli /c0/v0 delete preservedcache

@@ -16,6 +16,9 @@ get        Get a particular value to a property
 /fall      Foreign configuration specific commands
 /px        Phy specific commands
 
+# raid controller info
+perccli /c0 show
+
 # pd info
 perccli /c0/eall/sall show
 perccli /c0/e64/s0 show
@@ -37,3 +40,6 @@ perccli /c0/fall delete
 # clear vd0 cache
 perccli /c0 show preservedcache
 perccli /c0/v0 delete preservedcache
+
+# ttylog
+perccli /c0 show termlog

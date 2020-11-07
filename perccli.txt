@@ -35,6 +35,10 @@ perccli /c0 add vd r5 size=all drives=32:01,32:02,32:03
 perccli /c0 add vd r5 size=8tb name=data drives=32:01,32:02,32:03
 perccli /c0 /v1 del
 
+# add hotsparedrive
+perccli /c0/e64/s23 add hotsparedrive
+perccli /c0/e64/s23 delete hotsparedrive
+
 # foreign info
 perccli /c0/fall show 
 perccli /c0/fall import

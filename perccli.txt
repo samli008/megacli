@@ -31,6 +31,8 @@ perccli /c0/e64/s0 set jbod
 perccli /c0/vall show
 perccli /c0/v0 show
 perccli /c0/v1 show
+perccli /c0 add vd r5 size=all drives=32:01,32:02,32:03
+perccli /c0 /v1 del
 
 # foreign info
 perccli /c0/fall show 

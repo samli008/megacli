@@ -2,6 +2,9 @@
 rpm -ivh perccli-1.17.10-1.noarch.rpm
 ln -sf /opt/MegaRAID/perccli/perccli64 /usr/bin/perccli
 
+# install perccli on esxi6.x
+esxcli software vib install -v vmware-perccli-007.0127.0000.0000.vib
+
 # Commands Description
 add        Adds/creates a new element to controller like VD,Spare..etc
 delete     Deletes an element like VD,Spare

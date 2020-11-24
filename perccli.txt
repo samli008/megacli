@@ -3,7 +3,9 @@ rpm -ivh perccli-1.17.10-1.noarch.rpm
 ln -sf /opt/MegaRAID/perccli/perccli64 /usr/bin/perccli
 
 # install perccli on esxi6.x
-esxcli software vib install -v vmware-perccli-007.0127.0000.0000.vib
+esxcli software vib install -v /vmfs/volumes/datastore1/vmware-perccli_007.1020.vib 
+cd /opt/lsi/perccli
+./perccli /c0 add vd r5 size=500gb name=data drives=32:0,32:1,32:2
 
 # Commands Description
 add        Adds/creates a new element to controller like VD,Spare..etc

@@ -1,4 +1,4 @@
-# install perccli
+# install perccli on linux
 rpm -ivh perccli-1.17.10-1.noarch.rpm
 ln -sf /opt/MegaRAID/perccli/perccli64 /usr/bin/perccli
 
